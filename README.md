@@ -16,7 +16,7 @@
 Mac OS X & Linux & Windows:
 
 ```sh 
-git clone https://github.com/LucasLagoeiro/Projeto-CCP130.git
+git clone https://github.com/LucasLagoeiro/Project-CCP130.git
 ```
 
 After this you just need to run the Compiler:
