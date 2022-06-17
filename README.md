@@ -8,7 +8,7 @@
 ## Prerequisites
 * [IDE](https://code.visualstudio.com/)
 * [Git](https://git-scm.com/)
-* [Compiler](https://code.visualstudio.com/) (I strongly recommend GCC but you can use G++)
+* [Compiler](https://gcc.gnu.org/) (I strongly recommend GCC but you can use G++)
 
 
 ## Installation
