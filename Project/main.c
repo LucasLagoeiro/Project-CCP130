@@ -63,7 +63,7 @@ void center(const char *s, int width)
 
 void Menu()
 {
-    system("clear");
+    system("cls");
     char projeto_ccp130_0[] = {" ------------------------------------------------------------------------------------------------------------------------------------------ \n"};
     char projeto_ccp130_1[] = {"|  --------------------------------------------------------------------------------------------------------------------------------------  |\n"};
     char projeto_ccp130_2[] = {"| | ########  ########   #######        ## ######## ########  #######             ######   ######  ########     ##    #######    #####   | |\n"};
@@ -104,7 +104,7 @@ void Menu()
 // Função do menu forca (principal)
 void Menu_Principal_jogoForca()
 {
-    system("clear");
+    system("cls");
 
     // Apresentação do jogo.
     char hangman_game_0[] = {" ---------------------------------------------------------------------------------------------------------------------------- \n"};
@@ -144,7 +144,7 @@ void Menu_Principal_jogoForca()
 // Função do menu da forca (ajuda).
 void Ajuda()
 {
-    system("clear");
+    system("cls");
 
     char hangman_game_0[] = {" ---------------------------------------------------------------------------------------------------------------------------- \n"};
     char hangman_game_1[] = {"|  ------------------------------------------------------------------------------------------------------------------------  |\n"};
@@ -182,7 +182,7 @@ void Ajuda()
 void Dicionario_menuPrincipal()
 {
 
-    system("clear");
+    system("cls");
 
     char dicionario_0[] = {" ---------------------------------------------------------------------------------------- \n"};
     char dicionario_1[] = {"|  ------------------------------------------------------------------------------------  |\n"};
@@ -223,7 +223,7 @@ void Dicionario_menuPrincipal()
 void Dicionario_Adicionar_Pesquisar_Palavra()
 {
 
-    system("clear");
+    system("cls");
 
     char dicionario_0[] = {" ---------------------------------------------------------------------------------------- \n"};
     char dicionario_1[] = {"|  ------------------------------------------------------------------------------------  |\n"};
@@ -253,7 +253,7 @@ void Dicionario_Adicionar_Pesquisar_Palavra()
 // Função para imprimir os Creditos
 void Creditos()
 {
-    system("clear");
+    system("cls");
 
     printf("\n\n\n");
 
@@ -358,7 +358,7 @@ char leitor_dicionario_consulta_inteiro()
 // Função de leitura de todas as linhas do dicionario e mostra no terminal.
 int dicionarioInteiro()
 {
-    system("clear");
+    system("cls");
     FILE *dicionario;
     char linha[256];
     dicionario = fopen("dicionario.txt", "r"); 
@@ -394,7 +394,7 @@ int dicionarioLinhas()
 // Função de adicionar uma palavra nova junto com seu significado no dicionário.
 void palavraNova()
 {
-    system("clear");
+    system("cls");
 
     Dicionario_Adicionar_Pesquisar_Palavra();
 
@@ -436,7 +436,7 @@ void palavraNova()
                 printf("\n\n");
                 fclose(dicionario);
                 delay(3);        
-                system("clear");
+                system("cls");
             }
 
             while (i < n && linhas_dicionario[i] != ' ')
@@ -452,13 +452,13 @@ void palavraNova()
     // Imprimir a palavra com seu significado no arquivo "dicionario.txt".
     fprintf(dicionario, "\n%s : %s", palavra, significado);
     fclose(dicionario); 
-    system("clear");    
+    system("cls");    
 }
 
 // Função de pesquisa de palavras no dicionário
 void pesquisarPalavra()
 {
-    system("clear"); 
+    system("cls"); 
 
     Dicionario_Adicionar_Pesquisar_Palavra();
 
@@ -516,14 +516,14 @@ void pesquisarPalavra()
     fclose(dicionario);
     printf("\n\n");
     delay(3);
-    system("clear"); 
+    system("cls"); 
 
 }
 
 // Função para o Hangman - Game (jogo da Forca).
 void jogoForca()
 {
-    system("clear");
+    system("cls");
     time_t t; // declaração da variavel para srand(aleatorio).
     FILE *dicionario;
     dicionario = fopen("dicionario.txt", "r");
@@ -625,7 +625,7 @@ void jogoForca()
         center(letra_dig, 118);
         fflush(stdout);
         scanf(" %c", &guess);
-        system("clear"); 
+        system("cls"); 
         printf("\n\n");
 
         strcat(letras_digitadas, &guess);
@@ -941,7 +941,7 @@ void jogoForca()
             printf("\" %s\".\n", palavra_forca);
 
             delay(3);
-            system("clear");
+            system("cls");
             break;
         }
         // Caso acerte a palavra antes das tentativas zerarem, você ganhou!!!
@@ -963,7 +963,7 @@ void jogoForca()
         printf("\" %s\".\n", palavra_forca);
         delay(3);
     }
-    system("clear"); 
+    system("cls"); 
 }
 
 void menu_jogoForca_ajuda()
@@ -1064,7 +1064,7 @@ void menu_opcao_Dicionario_Inteiro()
 int main()
 {
 
-     system("clear");
+     system("cls");
     FILE *dicionario;
     int opcaoEscolhida;
     dicionario = fopen("dicionario.txt", "r"); 
@@ -1102,7 +1102,7 @@ int main()
         }
     } while (opcaoEscolhida != 99);
     delay(2);
-    system("clear");
+    system("cls");
 
     return 0;
 }
