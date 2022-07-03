@@ -8,7 +8,7 @@
 ## Prerequisites
 * [IDE](https://code.visualstudio.com/)
 * [Git](https://git-scm.com/)
-* [Compiler](https://code.visualstudio.com/) (I strongly recommend GCC but you can use G++)
+* [Compiler](https://gcc.gnu.org/) (I strongly recommend GCC but you can use G++)
 
 
 ## Installation
@@ -16,7 +16,7 @@
 Mac OS X & Linux & Windows:
 
 ```sh 
-git clone https://github.com/LucasLagoeiro/Projeto-CCP130.git
+git clone https://github.com/LucasLagoeiro/Project-CCP130.git
 ```
 
 After this you just need to run the Compiler:
