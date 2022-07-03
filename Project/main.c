@@ -628,9 +628,21 @@ void jogoForca()
         system("cls"); 
         printf("\n\n");
 
-        strcat(letras_digitadas, &guess);
-        strcat(letras_digitadas, c);
+        // Teste para ver se o usuário digitou alguma letra repetida
+        int count_igual = 0;
         int M = strlen(letras_digitadas);
+        for (int i = 0; i < M; i++)
+            {
+                if (guess == letras_digitadas[i])
+                {
+                    count_igual++;
+                }
+            }
+        if (count_igual == 0)
+        {
+            strcat(letras_digitadas, &guess);
+            strcat(letras_digitadas, c);
+        }
 
         // Teste da letra digitada com a palavra escondida (substitui '-' pela letra, caso não aumenta a contagem do count_e (count_e++)).
         for (int k = 0; k < N; ++k)
@@ -644,18 +656,41 @@ void jogoForca()
                 count_e++;
             }
         }
-
         // Se count_e = N (tamanho da string digitada) diminui a tentativa (tentativa --).
         if (count_e == N)
         {
+            if (count_igual == 0 )
+            {
             tentativas--;
-            
+            }
 
             // Conforme as tentativas forem diminuindo, vai se formando o desenho do boneco na forca
-            if (tentativas > 0)
-            {
+            
+            if (tentativas > 0){
                 char voce_errou[] = {"Você errou!!!!\n"};
                 first_center_menu(voce_errou, 155);
+            }
+            if (tentativas == 6)
+            {
+                char forca9[] = {"Chances: "};
+                center(forca9, 158);
+                printf("%d\n", tentativas);
+
+                char forca10[] = {"  _______     \n"};
+                char forca11[] = {"  |/   |      \n"};
+                char forca12[] = {"  |           \n"};
+                char forca13[] = {"  |           \n"};
+                char forca14[] = {"  |           \n"};
+                char forca15[] = {"  |           \n"};
+                char forca16[] = {"__|_________\n\n"};
+
+                center(forca10, 158);
+                center(forca11, 158);
+                center(forca12, 158);
+                center(forca13, 158);
+                center(forca14, 158);
+                center(forca15, 158);
+                center(forca16, 158);
             }
             if (tentativas == 5)
             {

@@ -49,7 +49,7 @@ gcc main.c -o exec && .\exec
 
 ## Updates
 
-* 3.0.0 (is coming...)
+* 3.0.0
     * FIX: The bug when you type the same wrong word it decreases your attempt at the Hangman Game
 * 2.0.1
     * Updates README.
