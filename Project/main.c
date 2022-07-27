@@ -63,7 +63,7 @@ void center(const char *s, int width)
 
 void Menu()
 {
-    system("cls");
+    system("clear");
     char projeto_ccp130_0[] = {" ------------------------------------------------------------------------------------------------------------------------------------------ \n"};
     char projeto_ccp130_1[] = {"|  --------------------------------------------------------------------------------------------------------------------------------------  |\n"};
     char projeto_ccp130_2[] = {"| | ########  ########   #######        ## ######## ########  #######             ######   ######  ########     ##    #######    #####   | |\n"};
@@ -104,7 +104,7 @@ void Menu()
 // Função do menu forca (principal)
 void Menu_Principal_jogoForca()
 {
-    system("cls");
+    system("clear");
 
     // Apresentação do jogo.
     char hangman_game_0[] = {" ---------------------------------------------------------------------------------------------------------------------------- \n"};
@@ -144,7 +144,7 @@ void Menu_Principal_jogoForca()
 // Função do menu da forca (ajuda).
 void Ajuda()
 {
-    system("cls");
+    system("clear");
 
     char hangman_game_0[] = {" ---------------------------------------------------------------------------------------------------------------------------- \n"};
     char hangman_game_1[] = {"|  ------------------------------------------------------------------------------------------------------------------------  |\n"};
@@ -182,7 +182,7 @@ void Ajuda()
 void Dicionario_menuPrincipal()
 {
 
-    system("cls");
+    system("clear");
 
     char dicionario_0[] = {" ---------------------------------------------------------------------------------------- \n"};
     char dicionario_1[] = {"|  ------------------------------------------------------------------------------------  |\n"};
@@ -223,7 +223,7 @@ void Dicionario_menuPrincipal()
 void Dicionario_Adicionar_Pesquisar_Palavra()
 {
 
-    system("cls");
+    system("clear");
 
     char dicionario_0[] = {" ---------------------------------------------------------------------------------------- \n"};
     char dicionario_1[] = {"|  ------------------------------------------------------------------------------------  |\n"};
@@ -253,7 +253,7 @@ void Dicionario_Adicionar_Pesquisar_Palavra()
 // Função para imprimir os Creditos
 void Creditos()
 {
-    system("cls");
+    system("clear");
 
     printf("\n\n\n");
 
@@ -358,7 +358,7 @@ char leitor_dicionario_consulta_inteiro()
 // Função de leitura de todas as linhas do dicionario e mostra no terminal.
 int dicionarioInteiro()
 {
-    system("cls");
+    system("clear");
     FILE *dicionario;
     char linha[256];
     dicionario = fopen("dicionario.txt", "r"); 
@@ -394,7 +394,7 @@ int dicionarioLinhas()
 // Função de adicionar uma palavra nova junto com seu significado no dicionário.
 void palavraNova()
 {
-    system("cls");
+    system("clear");
 
     Dicionario_Adicionar_Pesquisar_Palavra();
 
@@ -436,7 +436,7 @@ void palavraNova()
                 printf("\n\n");
                 fclose(dicionario);
                 delay(3);        
-                system("cls");
+                system("clear");
             }
 
             while (i < n && linhas_dicionario[i] != ' ')
@@ -452,13 +452,13 @@ void palavraNova()
     // Imprimir a palavra com seu significado no arquivo "dicionario.txt".
     fprintf(dicionario, "\n%s : %s", palavra, significado);
     fclose(dicionario); 
-    system("cls");    
+    system("clear");    
 }
 
 // Função de pesquisa de palavras no dicionário
 void pesquisarPalavra()
 {
-    system("cls"); 
+    system("clear"); 
 
     Dicionario_Adicionar_Pesquisar_Palavra();
 
@@ -516,14 +516,14 @@ void pesquisarPalavra()
     fclose(dicionario);
     printf("\n\n");
     delay(3);
-    system("cls"); 
+    system("clear"); 
 
 }
 
 // Função para o Hangman - Game (jogo da Forca).
 void jogoForca()
 {
-    system("cls");
+    system("clear");
     time_t t; // declaração da variavel para srand(aleatorio).
     FILE *dicionario;
     dicionario = fopen("dicionario.txt", "r");
@@ -565,12 +565,12 @@ void jogoForca()
     char letras_e[] = {'0'};
     char letras_digitadas[100] = {'\0'};
     char zero[1] = {'0'}, c[] = {" "};
+    int ent = 0;
 
     // o Jogo! (caso ganhe o gameover irá ser = 0, assim sairá do looping)
     while (!gameover)
     {
 
-        printf("\n\n");
         if (tentativas == 6 && pontuacao == 0)
         {
             char forca1[] = {"Chances: "};
@@ -592,11 +592,19 @@ void jogoForca()
             center(forca6, 158);
             center(forca7, 158);
             center(forca8, 158);
+            
+            // Mostrar as letras certas digitadas.
+            char palavras_digitadas[] = {"Letras digitadas: "};
+            center(palavras_digitadas, 188);
+            printf("%s   ", letras_digitadas);
+            printf("\n\n");
+
+            char guess_palavra[] = {"A palavra é: "};
+            center(guess_palavra, 148);
         }
 
         // A palavra secreta será substituida por ------- quando palavra_secreta = 0, caso contrario ira substituir o "-" pela letra da palavra secreta.
-        char guess_palavra[] = {"A palavra é: "};
-        center(guess_palavra, 148);
+
 
         for (int j = 0; j < N; ++j)
         {
@@ -611,11 +619,6 @@ void jogoForca()
         }
         printf("\n\n");
 
-        // Mostrar as letras certas digitadas.
-        char palavras_digitadas[] = {"Palavras digitadas: "};
-        center(palavras_digitadas, 188);
-        printf("%s   ", letras_digitadas);
-        printf("\n\n\n");
 
         // Proxima letra que o jogador digitar.
         char guess = {'\0'};
@@ -625,7 +628,7 @@ void jogoForca()
         center(letra_dig, 118);
         fflush(stdout);
         scanf(" %c", &guess);
-        system("cls"); 
+        system("clear"); 
         printf("\n\n");
 
         // Teste para ver se o usuário digitou alguma letra repetida
@@ -691,6 +694,15 @@ void jogoForca()
                 center(forca14, 158);
                 center(forca15, 158);
                 center(forca16, 158);
+
+                // Mostrar as letras certas digitadas.
+                char palavras_digitadas[] = {"Letras digitadas: "};
+                center(palavras_digitadas, 188);
+                printf("%s   ", letras_digitadas);
+                printf("\n\n");
+
+                char guess_palavra[] = {"A palavra é: "};
+                center(guess_palavra, 148);
             }
             if (tentativas == 5)
             {
@@ -713,6 +725,15 @@ void jogoForca()
                 center(forca14, 158);
                 center(forca15, 158);
                 center(forca16, 158);
+
+                // Mostrar as letras certas digitadas.
+                char palavras_digitadas[] = {"Letras digitadas: "};
+                center(palavras_digitadas, 188);
+                printf("%s   ", letras_digitadas);
+                printf("\n\n");
+
+                char guess_palavra[] = {"A palavra é: "};
+                center(guess_palavra, 148);
             }
             else if (tentativas == 4)
             {
@@ -735,6 +756,15 @@ void jogoForca()
                 center(forca22, 158);
                 center(forca23, 158);
                 center(forca24, 158);
+
+                // Mostrar as letras certas digitadas.
+                char palavras_digitadas[] = {"Letras digitadas: "};
+                center(palavras_digitadas, 188);
+                printf("%s   ", letras_digitadas);
+                printf("\n\n");
+
+                char guess_palavra[] = {"A palavra é: "};
+                center(guess_palavra, 148);
             }
             else if (tentativas == 3)
             {
@@ -757,6 +787,15 @@ void jogoForca()
                 center(forca30, 158);
                 center(forca31, 158);
                 center(forca32, 158);
+
+                // Mostrar as letras certas digitadas.
+                char palavras_digitadas[] = {"Letras digitadas: "};
+                center(palavras_digitadas, 188);
+                printf("%s   ", letras_digitadas);
+                printf("\n\n");
+
+                char guess_palavra[] = {"A palavra é: "};
+                center(guess_palavra, 148);
             }
             else if (tentativas == 2)
             {
@@ -779,6 +818,15 @@ void jogoForca()
                 center(forca38, 158);
                 center(forca39, 158);
                 center(forca40, 158);
+
+                // Mostrar as letras certas digitadas.
+                char palavras_digitadas[] = {"Letras digitadas: "};
+                center(palavras_digitadas, 188);
+                printf("%s   ", letras_digitadas);
+                printf("\n\n");
+
+                char guess_palavra[] = {"A palavra é: "};
+                center(guess_palavra, 148);
             }
             else if (tentativas == 1)
             {
@@ -801,6 +849,15 @@ void jogoForca()
                 center(forca46, 158);
                 center(forca47, 158);
                 center(forca48, 158);
+
+                // Mostrar as letras certas digitadas.
+                char palavras_digitadas[] = {"Letras digitadas: "};
+                center(palavras_digitadas, 188);
+                printf("%s   ", letras_digitadas);
+                printf("\n\n");
+
+                char guess_palavra[] = {"A palavra é: "};
+                center(guess_palavra, 148);
             }
         }
 
@@ -832,6 +889,15 @@ void jogoForca()
                 center(forca104, 158);
                 center(forca105, 158);
                 center(forca106, 158);
+
+                // Mostrar as letras certas digitadas.
+                char palavras_digitadas[] = {"Letras digitadas: "};
+                center(palavras_digitadas, 188);
+                printf("%s   ", letras_digitadas);
+                printf("\n\n");
+
+                char guess_palavra[] = {"A palavra é: "};
+                center(guess_palavra, 148);
             }
 
             if (tentativas == 5)
@@ -855,6 +921,15 @@ void jogoForca()
                 center(forca54, 158);
                 center(forca55, 158);
                 center(forca56, 158);
+
+                // Mostrar as letras certas digitadas.
+                char palavras_digitadas[] = {"Letras digitadas: "};
+                center(palavras_digitadas, 188);
+                printf("%s   ", letras_digitadas);
+                printf("\n\n");
+
+                char guess_palavra[] = {"A palavra é: "};
+                center(guess_palavra, 148);
             }
             else if (tentativas == 4)
             {
@@ -877,6 +952,15 @@ void jogoForca()
                 center(forca62, 158);
                 center(forca63, 158);
                 center(forca64, 158);
+
+                // Mostrar as letras certas digitadas.
+                char palavras_digitadas[] = {"Letras digitadas: "};
+                center(palavras_digitadas, 188);
+                printf("%s   ", letras_digitadas);
+                printf("\n\n");
+
+                char guess_palavra[] = {"A palavra é: "};
+                center(guess_palavra, 148);
             }
             else if (tentativas == 3)
             {
@@ -899,6 +983,15 @@ void jogoForca()
                 center(forca70, 158);
                 center(forca71, 158);
                 center(forca72, 158);
+
+                // Mostrar as letras certas digitadas.
+                char palavras_digitadas[] = {"Letras digitadas: "};
+                center(palavras_digitadas, 188);
+                printf("%s   ", letras_digitadas);
+                printf("\n\n");
+
+                char guess_palavra[] = {"A palavra é: "};
+                center(guess_palavra, 148);
             }
             else if (tentativas == 2)
             {
@@ -921,6 +1014,15 @@ void jogoForca()
                 center(forca78, 158);
                 center(forca79, 158);
                 center(forca80, 158);
+
+                // Mostrar as letras certas digitadas.
+                char palavras_digitadas[] = {"Letras digitadas: "};
+                center(palavras_digitadas, 188);
+                printf("%s   ", letras_digitadas);
+                printf("\n\n");
+
+                char guess_palavra[] = {"A palavra é: "};
+                center(guess_palavra, 148);
             }
             else if (tentativas == 1)
             {
@@ -943,6 +1045,15 @@ void jogoForca()
                 center(forca86, 158);
                 center(forca87, 158);
                 center(forca88, 158);
+
+                // Mostrar as letras certas digitadas.
+                char palavras_digitadas[] = {"Letras digitadas: "};
+                center(palavras_digitadas, 188);
+                printf("%s   ", letras_digitadas);
+                printf("\n\n");
+
+                char guess_palavra[] = {"A palavra é: "};
+                center(guess_palavra, 148);
             }
         }
 
@@ -970,13 +1081,15 @@ void jogoForca()
                 center(forca94, 158);
                 center(forca95, 158);
                 center(forca96, 158);
+
+
             }
 
             center("Você perdeu! A palavra é ", 140);
             printf("\" %s\".\n", palavra_forca);
 
             delay(3);
-            system("cls");
+            system("clear");
             break;
         }
         // Caso acerte a palavra antes das tentativas zerarem, você ganhou!!!
@@ -998,7 +1111,7 @@ void jogoForca()
         printf("\" %s\".\n", palavra_forca);
         delay(3);
     }
-    system("cls"); 
+    system("clear"); 
 }
 
 void menu_jogoForca_ajuda()
@@ -1099,7 +1212,7 @@ void menu_opcao_Dicionario_Inteiro()
 int main()
 {
 
-     system("cls");
+     system("clear");
     FILE *dicionario;
     int opcaoEscolhida;
     dicionario = fopen("dicionario.txt", "r"); 
@@ -1137,7 +1250,7 @@ int main()
         }
     } while (opcaoEscolhida != 99);
     delay(2);
-    system("cls");
+    system("clear");
 
     return 0;
 }
